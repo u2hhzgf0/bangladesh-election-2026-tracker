@@ -8,9 +8,15 @@ const CountdownTimer: React.FC = () => {
   const countdownData = useAppSelector((state) => state.realtime.countdown);
   const [timeLeft, setTimeLeft] = useState<CountdownTime>(countdownData);
 
-  // Update local state when Redux state changes
+  // Update local state when Redux state changes (offset to 7:00 PM instead of 5:00 PM)
   useEffect(() => {
-    setTimeLeft(countdownData);
+    let hours = countdownData.hours + 2;
+    let days = countdownData.days;
+    if (hours >= 24) {
+      hours -= 24;
+      days += 1;
+    }
+    setTimeLeft({ ...countdownData, days, hours });
   }, [countdownData]);
 
   const TimeUnit = ({ label, value }: { label: string; value: number }) => (
