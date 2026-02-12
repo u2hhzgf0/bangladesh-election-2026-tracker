@@ -1,0 +1,8 @@
+
+{
+  "name": "Bangladesh Election 2026 Tracker",
+  "description": "A real-time voting results tracker and countdown for the 2026 Bangladesh Election featuring symbolic party representations and AI-powered election insights.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
