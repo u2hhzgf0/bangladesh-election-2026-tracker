@@ -61,8 +61,8 @@ cd ..
 
 **Frontend (.env):**
 ```env
-VITE_API_URL=http://localhost:5002/api
-VITE_SOCKET_URL=http://localhost:5002
+VITE_API_URL=https://votapi.wixford.com/api
+VITE_SOCKET_URL=https://votapi.wixford.com
 ```
 
 **Backend (server/.env):**
@@ -81,7 +81,7 @@ cd server
 npm run dev
 ```
 
-The server will start on `http://localhost:5002`
+The server will start on `https://votapi.wixford.com`
 
 ### Start the Frontend
 
@@ -216,7 +216,7 @@ GET /api/nid/images/nid-1709123456-987654321.jpg
 ```javascript
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5002');
+const socket = io('https://votapi.wixford.com');
 ```
 
 ### Server → Client Events
@@ -288,7 +288,7 @@ function NIDUploadComponent() {
 
     try {
       // Upload to server
-      const response = await fetch('http://localhost:5002/api/nid/upload', {
+      const response = await fetch('https://votapi.wixford.com/api/nid/upload', {
         method: 'POST',
         body: formData // Don't set Content-Type, browser will set it automatically
       });
@@ -323,7 +323,7 @@ function NIDUploadComponent() {
           <p>Name: {result.name}</p>
           <p>NID: {result.nidNumber}</p>
           <img
-            src={`http://localhost:5002${result.uploadedImage.path}`}
+            src={`https://votapi.wixford.com${result.uploadedImage.path}`}
             alt="Uploaded NID"
             style={{ maxWidth: '300px' }}
           />
@@ -338,18 +338,18 @@ function NIDUploadComponent() {
 
 ```bash
 # Upload NID image
-curl -X POST http://localhost:5002/api/nid/upload \
+curl -X POST https://votapi.wixford.com/api/nid/upload \
   -F "nidImage=@/path/to/your/nid-card.jpg"
 
 # Get uploaded image
-curl http://localhost:5002/api/nid/images/nid-1709123456-987654321.jpg \
+curl https://votapi.wixford.com/api/nid/images/nid-1709123456-987654321.jpg \
   --output downloaded-nid.jpg
 ```
 
 ### Using Postman
 
 1. Set method to `POST`
-2. URL: `http://localhost:5002/api/nid/upload`
+2. URL: `https://votapi.wixford.com/api/nid/upload`
 3. Go to `Body` tab
 4. Select `form-data`
 5. Add key: `nidImage`, type: `File`
@@ -410,7 +410,7 @@ Location: `server/middleware/upload.js`
 1. Start the backend server
 2. Use cURL or Postman to upload an image
 3. Check `server/uploads/nid-images/` for the stored file
-4. Access the image via browser: `http://localhost:5002/uploads/nid-images/[filename]`
+4. Access the image via browser: `https://votapi.wixford.com/uploads/nid-images/[filename]`
 
 ### Expected Flow
 

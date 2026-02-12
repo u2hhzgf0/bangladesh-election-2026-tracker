@@ -53,7 +53,7 @@ npm install
 npm run dev
 ```
 
-Server runs on: `http://localhost:5002`
+Server runs on: `https://votapi.wixford.com`
 
 ### 3. Start Frontend
 
@@ -394,13 +394,13 @@ const handleVote = async (party: 'rice' | 'scale') => {
 ### API calls not working
 ```bash
 # Check if backend is running
-curl http://localhost:5002/api/health
+curl https://votapi.wixford.com/api/health
 
 # Check environment variables
 cat .env
 # Should have:
-# VITE_API_URL=http://localhost:5002/api
-# VITE_SOCKET_URL=http://localhost:5002
+# VITE_API_URL=https://votapi.wixford.com/api
+# VITE_SOCKET_URL=https://votapi.wixford.com
 ```
 
 ### Socket.io not connecting

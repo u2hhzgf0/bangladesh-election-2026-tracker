@@ -8,7 +8,7 @@ import {
   updateAllData,
 } from '../slices/realtimeSlice';
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5002';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://votapi.wixford.com';
 
 let socket: Socket | null = null;
 

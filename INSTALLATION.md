@@ -58,8 +58,8 @@ cd "../bangladesh-election-2026-tracker"
 
 Create/edit `.env`:
 ```env
-VITE_API_URL=http://localhost:5002/api
-VITE_SOCKET_URL=http://localhost:5002
+VITE_API_URL=https://votapi.wixford.com/api
+VITE_SOCKET_URL=https://votapi.wixford.com
 ```
 
 **Backend (.env):**
@@ -86,7 +86,7 @@ npm run dev
 You should see:
 ```
 🚀 Bangladesh Election 2026 Server
-📡 Server running on http://localhost:5002
+📡 Server running on https://votapi.wixford.com
 🔌 WebSocket ready for real-time updates
 ⏰ Countdown timer active
 📊 Vote counting in progress
@@ -121,7 +121,7 @@ You should see:
 ### Check Backend Health
 
 ```bash
-curl http://localhost:5002/api/health
+curl https://votapi.wixford.com/api/health
 ```
 
 Expected response:
@@ -192,7 +192,7 @@ PORT=5001
 
 1. **Check backend is running**
    ```bash
-   curl http://localhost:5002/api/health
+   curl https://votapi.wixford.com/api/health
    ```
 
 2. **Check CORS settings**
@@ -213,7 +213,7 @@ PORT=5001
 2. **Check API URL**
    ```bash
    # Frontend .env
-   VITE_API_URL=http://localhost:5002/api
+   VITE_API_URL=https://votapi.wixford.com/api
    ```
 
 3. **Check network tab**
@@ -289,13 +289,13 @@ npm start
 
 ```bash
 # Get election insights
-curl http://localhost:5002/api/election/insights
+curl https://votapi.wixford.com/api/election/insights
 
 # Get current votes
-curl http://localhost:5002/api/vote/current
+curl https://votapi.wixford.com/api/vote/current
 
 # Get countdown
-curl http://localhost:5002/api/vote/countdown
+curl https://votapi.wixford.com/api/vote/countdown
 ```
 
 ## 📚 Next Steps
