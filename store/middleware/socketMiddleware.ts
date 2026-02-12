@@ -44,6 +44,12 @@ export const socketMiddleware: Middleware = (store) => {
       store.dispatch(updateAllData(data));
     });
 
+    // Listen for 'votes' event from server
+    socket.on('votes', (data: any) => {
+      console.log('🗳️  Received vote update:', data);
+      store.dispatch(updateVotes(data));
+    });
+
     socket.on('vote-update', (data: any) => {
       if (data.votes) {
         store.dispatch(updateVotes(data.votes));
@@ -51,6 +57,11 @@ export const socketMiddleware: Middleware = (store) => {
       if (data.referendum) {
         store.dispatch(updateReferendum(data.referendum));
       }
+    });
+
+    // Listen for 'countdown' event from server
+    socket.on('countdown', (data: any) => {
+      store.dispatch(updateCountdown(data));
     });
 
     socket.on('countdown-update', (data: any) => {

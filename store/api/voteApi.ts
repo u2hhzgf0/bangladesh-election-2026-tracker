@@ -14,7 +14,7 @@ export const voteApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Get current votes
     getCurrentVotes: builder.query<VoteData, void>({
-      query: () => '/vote/current',
+      query: () => '/votes',
       transformResponse: (response: { success: boolean; data: VoteData }) => response.data,
       providesTags: ['Votes'],
     }),
@@ -22,7 +22,7 @@ export const voteApi = baseApi.injectEndpoints({
     // Cast a vote
     castVote: builder.mutation<VoteData, { party: 'rice' | 'scale' }>({
       query: (body) => ({
-        url: '/vote/cast',
+        url: '/votes',
         method: 'POST',
         body,
       }),
@@ -32,7 +32,7 @@ export const voteApi = baseApi.injectEndpoints({
 
     // Get referendum data
     getReferendum: builder.query<ReferendumData, void>({
-      query: () => '/vote/referendum',
+      query: () => '/votes/referendum',
       transformResponse: (response: { success: boolean; data: ReferendumData }) => response.data,
       providesTags: ['Referendum'],
     }),
@@ -40,7 +40,7 @@ export const voteApi = baseApi.injectEndpoints({
     // Cast referendum vote
     castReferendumVote: builder.mutation<ReferendumData, { choice: 'yes' | 'no' }>({
       query: (body) => ({
-        url: '/vote/referendum',
+        url: '/votes/referendum',
         method: 'POST',
         body,
       }),
@@ -50,7 +50,7 @@ export const voteApi = baseApi.injectEndpoints({
 
     // Get countdown
     getCountdown: builder.query<CountdownData, void>({
-      query: () => '/vote/countdown',
+      query: () => '/votes/countdown',
       transformResponse: (response: { success: boolean; data: CountdownData }) => response.data,
       providesTags: ['Countdown'],
     }),

@@ -1,20 +1,14 @@
 import { baseApi } from './baseApi';
 
 interface NIDVerificationResult {
+  success: boolean;
   isValid: boolean;
-  name: string;
-  nidNumber: string;
   message?: string;
-  uploadedImage?: {
-    filename: string;
-    path: string;
-    size: number;
-  };
-  fileInfo?: {
-    originalName: string;
-    size: number;
-    mimetype: string;
-  };
+  imagePath?: string;
+  name?: string;
+  nidNumber?: string;
+  hasVoted?: boolean;
+  hasVotedInReferendum?: boolean;
 }
 
 // NID API endpoints

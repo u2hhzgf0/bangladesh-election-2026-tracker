@@ -1,32 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { CountdownTime } from '../types';
+import { useAppSelector } from '../store/hooks';
 
 const CountdownTimer: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState<CountdownTime>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  // Get countdown from Redux store (updated via Socket.io)
+  const countdownData = useAppSelector((state) => state.realtime.countdown);
+  const [timeLeft, setTimeLeft] = useState<CountdownTime>(countdownData);
 
+  // Update local state when Redux state changes
   useEffect(() => {
-    const targetDate = new Date('2026-01-05T08:00:00').getTime();
-
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference <= 0) {
-        clearInterval(interval);
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000),
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    setTimeLeft(countdownData);
+  }, [countdownData]);
 
   const TimeUnit = ({ label, value }: { label: string; value: number }) => (
     <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-2 sm:p-4 min-w-[60px] sm:min-w-[90px]">
