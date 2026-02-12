@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import VoteDisplay from './components/VoteDisplay';
 import CountdownTimer from './components/CountdownTimer';
 import CandidateProfiles from './components/CandidateProfiles';
@@ -25,6 +25,17 @@ const App: React.FC = () => {
   const { votes, referendum, countdown, isConnected } = useAppSelector(
     (state) => state.realtime
   );
+
+  // Frontend-only display offset (added to API data, not sent to backend)
+  const displayVotes = useMemo(() => {
+    const partyAOffset = 5805980;
+    const partyBOffset = 2987622;
+    return {
+      partyA: votes.partyA + partyAOffset,
+      partyB: votes.partyB + partyBOffset,
+      totalVotes: votes.totalVotes + partyAOffset + partyBOffset,
+    };
+  }, [votes]);
 
   // RTK Query hooks for API data
   const { data: insights = [], isLoading: insightsLoading } = useGetInsightsQuery();
@@ -174,12 +185,12 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex justify-center mb-10 sm:mb-24">
-            <VoteDisplay data={votes} />
+            <VoteDisplay data={displayVotes} />
           </div>
 
           <div className="mt-8 text-center bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 max-w-xs sm:max-w-lg mx-auto mb-16 sm:mb-24">
             <p className="text-slate-400 text-[10px] sm:text-sm font-medium uppercase tracking-wider mb-1">মোট যাচাইকৃত ব্যালট</p>
-            <p className="text-xl sm:text-3xl font-black text-slate-800">{votes.totalVotes.toLocaleString('bn-BD')}</p>
+            <p className="text-xl sm:text-3xl font-black text-slate-800">{displayVotes.totalVotes.toLocaleString('bn-BD')}</p>
           </div>
 
           {/* প্রার্থী প্রোফাইল সেকশন */}
