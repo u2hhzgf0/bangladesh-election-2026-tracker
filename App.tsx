@@ -290,9 +290,9 @@ const App: React.FC = () => {
               </p>
             </div>
             <div className="flex justify-center sm:justify-end gap-6 text-slate-400">
-               <a href="#" className="hover:text-green-600"><i className="fab fa-facebook-f text-lg"></i></a>
+               <a href="https://www.facebook.com/mdshadathossain.code" className="hover:text-green-600"><i className="fab fa-facebook-f text-lg"></i></a>
                <a href="#" className="hover:text-green-600"><i className="fab fa-twitter text-lg"></i></a>
-               <a href="#" className="hover:text-green-600"><i className="fab fa-instagram text-lg"></i></a>
+               <a href="https://www.instagram.com/mdshadathossain12" className="hover:text-green-600"><i className="fab fa-instagram text-lg"></i></a>
             </div>
           </div>
 
