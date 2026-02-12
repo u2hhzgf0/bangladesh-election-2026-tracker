@@ -38,7 +38,7 @@ const App: React.FC = () => {
       name: 'তারেক রহমান',
       party: 'বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি)',
       symbol: 'rice',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd7Fq7aO4bYriYDyO_9-sw25gNvoVQRn6Vpg&s',
       designation: 'ভারপ্রাপ্ত চেয়ারম্যান',
       motto: 'গণতন্ত্র পুনরূদ্ধার এবং জনগণের ভোটাধিকার নিশ্চিত করাই আমাদের মূল লক্ষ্য।'
     },
@@ -46,7 +46,7 @@ const App: React.FC = () => {
       name: 'ডা. শফিকুর রহমান',
       party: 'বাংলাদেশ জামায়াতে ইসলামী',
       symbol: 'scale',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKyYQEqKvlHx5IxRSWosPN55vuSYDZfaLCag&s',
       designation: 'আমীর',
       motto: 'ইনসাফ ভিত্তিক সমাজ গঠন এবং নৈতিক রাজনীতির মাধ্যমে দেশের উন্নয়ন সম্ভব।'
     }
